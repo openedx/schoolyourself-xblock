@@ -2,7 +2,6 @@
 
 from __future__ import absolute_import
 import hmac
-from six import text_type
 import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 
 from xblock.core import XBlock
@@ -10,6 +9,7 @@ from xblock.fields import Scope, String
 from xblock.fragment import Fragment
 
 from .schoolyourself import SchoolYourselfXBlock
+from .utils import convert_to_bytes
 
 
 class SchoolYourselfReviewXBlock(SchoolYourselfXBlock):
@@ -123,12 +123,14 @@ class SchoolYourselfReviewXBlock(SchoolYourselfXBlock):
       except ValueError:
         return "bad_request"
 
-      # Verify the signature.
-      if isinstance(self.shared_key, text_type):
-          self.shared_key = self.shared_key.encode('utf-8')
-      verifier = hmac.new(str(self.shared_key), user_id)
+      # The output isn't stored in `self.shared_key` as it is
+      # Xblock String field with enforce_type flag set to true
+      # which automatically reverts the type when value is being set again.
+      shared_key = convert_to_bytes(self.shared_key)
+      user_id = convert_to_bytes(user_id)
+      verifier = hmac.new(shared_key, user_id)
       for key in sorted(mastery):
-        verifier.update(key)
+        verifier.update(convert_to_bytes(key))
 
         # Every entry should be a number.
         try:
@@ -136,7 +138,7 @@ class SchoolYourselfReviewXBlock(SchoolYourselfXBlock):
         except ValueError:
           return "bad_request"
 
-        verifier.update("%.2f" % mastery[key])
+        verifier.update(convert_to_bytes("%.2f" % mastery[key]))
 
 
       # If the signature is invalid, do nothing.

@@ -11,6 +11,8 @@ from xblock.core import XBlock
 from xblock.fields import Scope, String
 from xblock.fragment import Fragment
 
+from .utils import convert_to_bytes
+
 
 class SchoolYourselfXBlock(XBlock):
     """Common functionality for the School Yourself XBlocks.
@@ -157,8 +159,10 @@ class SchoolYourselfXBlock(XBlock):
       if user_id:
         url_params["partner_user_id"] = user_id
         if shared_key:
-          url_params["partner_signature"] = hmac.new(str(shared_key),
-                                                     user_id).hexdigest()
+            # Verify the signature.
+            shared_key = convert_to_bytes(shared_key)
+            user_id = convert_to_bytes(user_id)
+            url_params["partner_signature"] = hmac.new(shared_key, user_id).hexdigest()
 
       return url_params
 
