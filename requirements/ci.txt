@@ -4,11 +4,11 @@
 #
 #    make upgrade
 #
-distlib==0.3.4
+distlib==0.3.6
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.7.1
+filelock==3.8.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -17,7 +17,7 @@ packaging==21.3
     # via
     #   -r requirements/tox.txt
     #   tox
-platformdirs==2.5.2
+platformdirs==2.5.4
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -37,14 +37,13 @@ six==1.16.0
     # via
     #   -r requirements/tox.txt
     #   tox
-    #   virtualenv
-toml==0.10.2
+tomli==2.0.1
     # via
     #   -r requirements/tox.txt
     #   tox
-tox==3.25.0
+tox==3.27.1
     # via -r requirements/tox.txt
-virtualenv==20.14.1
+virtualenv==20.16.7
     # via
     #   -r requirements/tox.txt
     #   tox
