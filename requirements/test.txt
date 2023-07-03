@@ -31,9 +31,9 @@ mock==5.0.2
     # via -r requirements/test.in
 packaging==23.1
     # via pytest
-pluggy==1.0.0
+pluggy==1.2.0
     # via pytest
-pytest==7.3.2
+pytest==7.4.0
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
