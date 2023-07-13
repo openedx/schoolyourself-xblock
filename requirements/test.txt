@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   fs
-exceptiongroup==1.1.1
+exceptiongroup==1.1.2
     # via pytest
 fs==2.4.16
     # via
@@ -16,7 +16,7 @@ fs==2.4.16
     #   xblock
 iniconfig==2.0.0
     # via pytest
-lxml==4.9.2
+lxml==4.9.3
     # via
     #   -r requirements/base.txt
     #   xblock
