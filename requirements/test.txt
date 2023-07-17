@@ -27,7 +27,7 @@ markupsafe==2.1.3
     #   -r requirements/base.txt
     #   mako
     #   xblock
-mock==5.0.2
+mock==5.1.0
     # via -r requirements/test.in
 packaging==23.1
     # via pytest
