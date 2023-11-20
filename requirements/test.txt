@@ -20,7 +20,7 @@ lxml==4.9.3
     # via
     #   -r requirements/base.txt
     #   xblock
-mako==1.2.4
+mako==1.3.0
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -35,7 +35,7 @@ packaging==23.2
     # via pytest
 pluggy==1.3.0
     # via pytest
-pytest==7.4.2
+pytest==7.4.3
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
