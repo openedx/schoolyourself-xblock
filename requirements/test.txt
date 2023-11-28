@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   fs
-exceptiongroup==1.1.3
+exceptiongroup==1.2.0
     # via pytest
 fs==2.4.16
     # via
