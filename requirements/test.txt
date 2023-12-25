@@ -16,7 +16,7 @@ fs==2.4.16
     #   xblock
 iniconfig==2.0.0
     # via pytest
-lxml==4.9.3
+lxml==4.9.4
     # via
     #   -r requirements/base.txt
     #   xblock
