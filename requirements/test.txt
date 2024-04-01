@@ -16,7 +16,7 @@ fs==2.4.16
     #   xblock
 iniconfig==2.0.0
     # via pytest
-lxml==5.1.0
+lxml==5.2.0
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -31,13 +31,13 @@ markupsafe==2.1.5
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-packaging==23.2
+packaging==24.0
     # via pytest
 pluggy==1.4.0
     # via pytest
-pytest==8.0.2
+pytest==8.1.1
     # via -r requirements/test.in
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -68,7 +68,7 @@ webob==1.8.7
     # via
     #   -r requirements/base.txt
     #   xblock
-xblock==1.10.0
+xblock==3.0.0
     # via -r requirements/base.txt
 
 # The following packages are considered to be unsafe in a requirements file:
