@@ -90,7 +90,7 @@ def package_data(pkg, roots):
 
 setup(
   name="schoolyourself-xblock",
-  version="0.2",
+  version="0.3",
   description="School Yourself lesson player",
   packages=[
     "schoolyourself",
