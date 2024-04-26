@@ -7,7 +7,11 @@ import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 
 from xblock.core import XBlock
 from xblock.fields import Scope, String
-from xblock.fragment import Fragment
+try:
+    from web_fragments.fragment import Fragment
+except:
+    # for backwards compatibility with quince and prior releases
+    from xblock.fragment import Fragment
 
 from .schoolyourself import SchoolYourselfXBlock
 
