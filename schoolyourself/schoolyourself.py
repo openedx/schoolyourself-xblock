@@ -3,7 +3,8 @@
 import hashlib
 import hmac
 import os
-import pkg_resources
+import importlib
+import importlib.resources
 
 from mako.template import Template
 
@@ -125,7 +126,8 @@ class SchoolYourselfXBlock(XBlock):
 
     def resource_string(self, path):
       """Handy helper for getting resources from our kit."""
-      data = pkg_resources.resource_string(__name__, path)
+      ref = importlib.resources.files("schoolyourself").joinpath(path)
+      data = ref.read_bytes()
       return data.decode("utf8")
 
 
