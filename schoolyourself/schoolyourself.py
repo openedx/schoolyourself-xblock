@@ -11,6 +11,10 @@ from mako.template import Template
 from xblock.core import XBlock
 from xblock.fields import Scope, String
 from web_fragments.fragment import Fragment
+try:
+    from xblock.utils.resources import ResourceLoader
+except ModuleNotFoundError:
+    from xblockutils.resources import ResourceLoader
 
 
 class SchoolYourselfXBlock(XBlock):
@@ -92,6 +96,7 @@ class SchoolYourselfXBlock(XBlock):
       default="edx",
       enforce_type=True)
 
+    loader = ResourceLoader(__name__)
 
     def get_student_id(self):
       """This is a helper that retrieves the student ID. We need this
@@ -126,9 +131,8 @@ class SchoolYourselfXBlock(XBlock):
 
     def resource_string(self, path):
       """Handy helper for getting resources from our kit."""
-      ref = importlib.resources.files("schoolyourself").joinpath(path)
-      data = ref.read_bytes()
-      return data.decode("utf8")
+      data = self.loader.load_unicode(path)
+      return data
 
 
     def render_template(self, template_name, context={}):
