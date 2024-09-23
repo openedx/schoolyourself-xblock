@@ -131,8 +131,7 @@ class SchoolYourselfXBlock(XBlock):
 
     def resource_string(self, path):
       """Handy helper for getting resources from our kit."""
-      data = self.loader.load_unicode(path)
-      return data
+      return self.loader.load_unicode(path)
 
 
     def render_template(self, template_name, context={}):
