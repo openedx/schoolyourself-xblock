@@ -119,7 +119,7 @@ def package_data(pkg, roots):
 
 setup(
   name="schoolyourself-xblock",
-  version="0.3.1",
+  version="0.4.0",
   description="School Yourself lesson player",
   long_description=open('README.md', encoding='utf-8').read(),
   long_description_content_type='text/markdown',
